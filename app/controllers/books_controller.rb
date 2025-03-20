@@ -25,10 +25,10 @@ def edit
 end
 
 def update
-  book = Book.find(params[:id])
-   if book.update(book_params)
+  @book = Book.find(params[:id])
+   if @book.update(book_params)
     flash[:notice] = "Book was successfully updated."
-    redirect_to book_path(book.id)
+    redirect_to book_path(@book.id)
    else
     render :edit
    end
